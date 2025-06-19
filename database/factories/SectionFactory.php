@@ -4,20 +4,21 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Section>
- */
 class SectionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'subject' => $this->faker->randomElement([
+                'Intro to Programming',
+                'Data Structures',
+                'Database Systems',
+                'Web Development',
+                'Computer Networks'
+            ]),
+            'course_code' => strtoupper($this->faker->bothify('CS###')),
+            'credits' => $this->faker->numberBetween(1, 5),
+            'description' => $this->faker->sentence(),
         ];
     }
 }

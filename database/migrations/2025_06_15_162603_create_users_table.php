@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('last_name')->comment('user last name.');
             $table->string('user_name')->comment('user user name.')->max(30);
             $table->string('password')->comment('user password.');
-            $table->timestamp('registration_date')->comment('user date of registration.');
+            $table->dateTime('registration_date')->comment('user date of registration.');
+            $table->timestamps();
         });
     }
 

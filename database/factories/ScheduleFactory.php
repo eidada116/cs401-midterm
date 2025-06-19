@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Models\App\Schedule;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Schedule>
  */
@@ -17,10 +17,10 @@ class ScheduleFactory extends Factory
     public function definition(): array
     {
         return [
-            'room'=>fake()->colorName(),
-            'term'=>fake()->random_int(1,3),
-            'day_of_week'=>fake()->dayOfWeek(),
-            'time_slot'=>fake()->time()
+            'day_of_week'=>$this->faker->dayOfWeek(),
+            'time_slot'=>$this->faker->time(),
+            'room'=>$this->faker->numberBetween(100,500),
+            'term'=>$this->faker->numberBetween(1,3),
         ];
     }
 }
